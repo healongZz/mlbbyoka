@@ -52,7 +52,27 @@ client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase(); 
     
-    
+  if(command == "ign") {
+        message.delete()
+  //  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
+    if(args[0] == "help"){
+    message.channel.send(`${message.author.username} Do ${prefix}ign **Username**or**ID** **SERVER**\nEx: ${prefix}ign 231831686 TestServer`).then(msg => msg.delete(11000));
+    return;
+  }
+    let chatchannel = message.guild.channels.find(`name`, "ign-user");
+  //  if(!chatchannel) return message.channel.send("you need create channel #chat to chatto !");
+  //  message.delete().catch(O_o=>{});
+        let nameid = args[0];
+        let server = args[1];
+        const embed = new Discord.RichEmbed()
+        .setTitle(`${message.author.username}`)
+        .setColor(`RANDOM`)
+        .addField(`Username/ID`, nameid)
+        .addField(`SERVER`, server)
+    chatchannel.send(embed);
+
+   }
+
     
     
     
