@@ -70,7 +70,7 @@ client.on("message", async message => {
         .addField(`Username/ID`, nameid)
         .addField(`SERVER`, server)
     chatchannel.send(embed);
-    message.channel.send(`${message.author.username} Your Username/Id Has Been Send To #my-profile 📤`)
+    message.channel.send(`${message.author.user} Your Username/Id Has Been Send To <#457884463829876737>  📤`)
    }
 
     
