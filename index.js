@@ -59,8 +59,8 @@ client.on("message", async message => {
     message.channel.send(`${message.author.username} Do ${prefix}ign **Username**or**ID** **SERVER**\nEx: ${prefix}ign 231831686 TestServer`).then(msg => msg.delete(11000));
     return;
   }
-    let chatchannel = message.guild.channels.find(`name`, "ign-user");
-  //  if(!chatchannel) return message.channel.send("you need create channel #chat to chatto !");
+    let chatchannel = message.guild.channels.find(`name`, "my-profile");
+   // if(!chatchannel) return message.channel.send(" !");
   //  message.delete().catch(O_o=>{});
         let nameid = args[0];
         let server = args[1];
@@ -70,7 +70,7 @@ client.on("message", async message => {
         .addField(`Username/ID`, nameid)
         .addField(`SERVER`, server)
     chatchannel.send(embed);
-
+    message.channel.send(`\`\`\`\${message.author.username} Your Username/Id Has Been Send To #my-profile\`\`\``)
    }
 
     
