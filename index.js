@@ -56,7 +56,7 @@ client.on("message", async message => {
         message.delete()
   //  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
     if(args[0] == "help"){
-    message.channel.send(`${message.author.username} Do ${prefix}ign **Username** or **ID** **SERVER**\nEx: ${prefix}ign 231831686 TestServer\n\n\`\`\`ServerList\nOrignlServer\nTestServer\`\`\``).then(msg => msg.delete(11000));
+    message.channel.send(`${message.author.username} Do ${prefix}ign (**Username** or **ID**) (**SERVER**)\nEx: ${prefix}ign 231831686 TestServer\n\`\`\`ServerList\nOrignlServer\nTestServer\`\`\``).then(msg => msg.delete(11000));
     return;
   }
     let chatchannel = message.guild.channels.find(`name`, "my-profile");
@@ -65,12 +65,13 @@ client.on("message", async message => {
         let nameid = args[0];
         let server = args[1];
         const embed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}`, message.author.avatarURL)
+        .setAuthor(`${message.author.username}`, message.author.avatarURL)
         .setColor(`RANDOM`)
         .addField(`Username/ID`, nameid)
         .addField(`SERVER`, server)
+        .setFooter("Add Me Now !")
     chatchannel.send(embed);
-    message.channel.send(`${message.author.user} Your Username/Id Has Been Send To <#457884463829876737>  📤`)
+    await message.channel.send(`${message.user.username} Your Username/Id Has Been Send To <#457884463829876737>  📤`)
    }
 
       if(command === "setrolecolor") {
