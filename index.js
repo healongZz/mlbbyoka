@@ -56,7 +56,7 @@ client.on("message", async message => {
         message.delete()
   //  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
     if(args[0] == "help"){
-    message.channel.send(`${message.author.username} Do ${prefix}ign **Username**or**ID** **SERVER**\nEx: ${prefix}ign 231831686 TestServer`).then(msg => msg.delete(11000));
+    message.channel.send(`${message.author.username} Do ${prefix}ign **Username** or **ID** **SERVER**\nEx: ${prefix}ign 231831686 TestServer\n\n\`\`\`ServerList\nOrignlServer\nTestServer\`\`\``).then(msg => msg.delete(11000));
     return;
   }
     let chatchannel = message.guild.channels.find(`name`, "my-profile");
@@ -65,7 +65,7 @@ client.on("message", async message => {
         let nameid = args[0];
         let server = args[1];
         const embed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}`)
+        .setTitle(`${message.author.username}`, message.author.avatarURL)
         .setColor(`RANDOM`)
         .addField(`Username/ID`, nameid)
         .addField(`SERVER`, server)
@@ -74,7 +74,7 @@ client.on("message", async message => {
    }
 
       if(command === "setrolecolor") {
-      if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("you don't have permssion MANAGE_ROLES to use this !").then(msg => msg.delete(6000));
+      if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("you don't have permssion MANAGE_ROLES to use this !").then(msg => msg.delete(7000));
   
 
 let role = message.mentions.roles.first() || message.guild.roles.find('name', args[0]);
@@ -83,8 +83,9 @@ if(!role) return message.channel.send("You forgot to type or mention a role!");
 let color = args.slice(1).join(" ");
 if(!color) return message.channel.send("You forgot to type a color hex!");
 
-await role.setColor(color).catch(error => message.channel.send(`Error: ${error}`));
-await message.channel.send(`\`${role.name}\`'s color was changed to ${role.color}`).catch(error => message.channel.send(`Error: ${error}`));
+await role.setColor(color).catch(error => message.channel.send(`Error: \`${error}\``));
+await message.channel.send(`\`${role.name}\`'s Color Was Changed To ${role.color}`).catch(error => message.channel.send(`Error: ${error}`));
+ 
  }
     
     
