@@ -31,13 +31,13 @@ client.on("guildMemberAdd", async member => {
 
     let memberjoin = member.guild.channels.find('name', "join-logs");
 const embed = new Discord.RichEmbed()
-.setTitle(`${member}`)
+//.setTitle(`${member}`)
 .setThumbnail(member.user.avatarURL)
 .setImage(randomImage)
 .setColor('RANDOM')
 .setFooter(`MobileLegends`)
 .setTimestamp()
-    .setDescription(`WELCOME TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
+    .setDescription(`WELCOME **${member}** TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
 memberjoin.sendEmbed(embed);
 });   
 
