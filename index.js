@@ -25,7 +25,7 @@ client.on('ready', () => {
   });
 
 client.on("guildMemberAdd", async member => {
-    var images = ["https://cdn.discordapp.com/attachments/457498142129127427/458481165360300033/20180619_110016.png", "https://cdn.discordapp.com/attachments/457498142129127427/458484392298414083/20180619_111306.png",];
+    var images = ["https://cdn.discordapp.com/attachments/442655163254308864/458569892233478145/20180619_165111.png", "https://cdn.discordapp.com/attachments/442655163254308864/458569893638438912/20180619_165132.png", "https://cdn.discordapp.com/attachments/442655163254308864/458569894158401537/20180619_165038.png", "https://cdn.discordapp.com/attachments/442655163254308864/458570061461061632/20180619_165333.png", "https://cdn.discordapp.com/attachments/442655163254308864/458570199688413204/20180619_165405.png",];
     var rand = Math.floor(Math.random() * images.length);
     var randomImage = images[rand];
 
@@ -34,9 +34,9 @@ const embed = new Discord.RichEmbed()
 .setThumbnail(member.user.avatarURL)
 .setImage(randomImage)
 .setColor('RANDOM')
-.setFooter('🎉 MEMBER JOIN !')
+.setFooter(`${member}`)
 .setTimestamp()
-    .setDescription(`WELCOME **[ ${member} ]** TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
+    .setDescription(`WELCOME TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
 memberjoin.sendEmbed(embed);
 });   
 
