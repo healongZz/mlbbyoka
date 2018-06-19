@@ -25,10 +25,14 @@ client.on('ready', () => {
   });
 
 client.on("guildMemberAdd", async member => {
+    var images = ["https://cdn.discordapp.com/attachments/457498142129127427/458481165360300033/20180619_110016.png", "https://cdn.discordapp.com/attachments/457498142129127427/458484392298414083/20180619_111306.png",];
+    var rand = Math.floor(Math.random() * images.length);
+    var randomImage = images[rand];
+
     let memberjoin = member.guild.channels.find('name', "join-logs");
 const embed = new Discord.RichEmbed()
 .setThumbnail(member.user.avatarURL)
-.setImage("https://cdn.discordapp.com/attachments/457498142129127427/457779145636577292/MobileLegendCommunity.png")
+.setImage(randomImage)
 .setColor('RANDOM')
 .setFooter('🎉 MEMBER JOIN !')
 .setTimestamp()
