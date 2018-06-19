@@ -34,7 +34,7 @@ const embed = new Discord.RichEmbed()
 .setThumbnail(member.user.avatarURL)
 .setImage(randomImage)
 .setColor('RANDOM')
-.setFooter(`${member}`)
+.setFooter(`${member.author.username}`)
 .setTimestamp()
     .setDescription(`WELCOME TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
 memberjoin.sendEmbed(embed);
