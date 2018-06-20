@@ -64,8 +64,8 @@ client.on("message", async message => {
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) (title)\`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
     }
-    let titile = args[1]
-    let art = args[0]
+    let art = args[0];
+    let titile = args[1];
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
@@ -75,8 +75,8 @@ client.on("message", async message => {
     .setDescription(`\`\`\`${art}\`\`\``)
     .setImage(art)
     
-    let artchannel = message.guild.channel.find('name', "mlbb-art");
-    message.reply("Your Art Has Send To #mlbb-art Please Check Out !")
+    let artchannel = message.guild.channels.find('name', "mlbb-art");
+    message.channel.send(`${message.author.username} Your Art Has Send To <@459065992908111874> Please Check Out !`)
 
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
