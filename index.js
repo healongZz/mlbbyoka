@@ -59,7 +59,7 @@ client.on("message", async message => {
    
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
-    if(!args[0]) {
+    if(!args[0] == "help") {
        const statushelp = new Discord.RichEmbed()
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) \`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
@@ -82,7 +82,7 @@ client.on("message", async message => {
     let artchannel = message.guild.channels.find('name', "mlbb-art");
     message.reply(`Your Art Has Send To <#459065992908111874> ! Please Check Out !`).then(msg => msg.delete(8000));
 
-    artchannel.send(`\@here`).then(msg => msg.delete(300));
+    artchannel.send(`\@here`).then(msg => msg.delete(400));
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
     await m.react(`👎`);
