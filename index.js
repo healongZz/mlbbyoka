@@ -59,7 +59,7 @@ client.on("message", async message => {
    
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
-    if(!args[0] == "help") {
+    if(args[0] == "help") {
        const statushelp = new Discord.RichEmbed()
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) \`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
