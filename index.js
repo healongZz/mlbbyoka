@@ -64,19 +64,23 @@ client.on("message", async message => {
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) (title)\`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
     }
+    let sym = ["□□□□□0%", "■□□□□20%", "■■□□□40%", "■■■□□60%", "■■■■□80%", "■■■■■100%",];
+    let rand = Math.floor(Math.random() * images.length);
+    let random = sym[random];
+            
     let art = args[0];
-    let titile = args[1];
+   let titile = args[1];
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
-    .setFooter(`Command By React | ${prefix}postart help :`, message.author.avatarURL)
+    .setFooter(`RandomPower ${random} | ${prefix}postart help :`, message.author.avatarURL)
     .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setDescription(`\`\`\`${art}\`\`\``)
+    .setAuthor('Art By : ${message.author.username}', message.author.avatarURL)
+    .setDescription(`\`\`\`${titile}\`\`\``)
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
-    message.channel.send(`${message.author.username} Your Art Has Send To <@459065992908111874> Please Check Out !`)
+    message.channel.send(`<@${message.author.tag}> Your Art Has Send To <#459065992908111874> Please Check Out !`)
 
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
