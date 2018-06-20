@@ -56,7 +56,38 @@ client.on("message", async message => {
     if(message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase(); 
+   
+      if(command === "postart" ) {
+   // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
+    if(!args[0]) {
+       const statushelp = new Discord.RichEmbed()
+        .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) (title)\`\`\``)
+        return message.channel.send(statushelp).then(msg => msg.delete(8000));
+    }
+    let titile = args[1]
+    let art = args[0]
+    message.delete();
+    let announceEmbed = new Discord.RichEmbed()
+    .setColor(`RANDOM`)
+    .setFooter(`Command By React | ${prefix}postart help :`, message.author.avatarURL)
+    .setTimestamp()
+    .setAuthor(message.author.username, message.author.avatarURL)
+    .setDescription(`\`\`\`${art}\`\`\``)
+    .setImage(art)
     
+    let artchannel = message.guild.channel.find('name', "mlbb-art");
+    message.reply("Your Art Has Send To #mlbb-art Please Check Out !")
+
+    let m = await artchannel.send(announceEmbed);
+    await m.react(`👍`);
+    await m.react(`👎`);
+    await m.react(`👏`);
+    await m.react(`💝`);
+   // await m.react(`😂`);
+   // await m.react(`😈`);
+  //  await m.react(``)
+
+}   
   if(command == "ign") {
         message.delete()
   //  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
