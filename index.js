@@ -73,21 +73,21 @@ client.on("message", async message => {
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
-    .setFooter(`Post More Art ${prefix}postart help :`, message.author.avatarURL)
+    .setFooter(`Post More Art Do ( ${prefix}postart help ) :`, message.author.avatarURL)
     .setTimestamp()
     .setAuthor(`🎴 Art By : ${message.author.username}`, message.author.avatarURL)
     .setDescription(`\`\`\`Auto React : ${symrandom}\`\`\``)
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
-    message.reply(`Your Art Has Send To <#459065992908111874> ! Please Check Out !`)
+    message.reply(`Your Art Has Send To <#459065992908111874> ! Please Check Out !`).then(msg => msg.delete(8000));
 
-    artchannel.send(`\@here`).then(msg => msg.delete(100));
+    artchannel.send(`\@here`).then(msg => msg.delete(300));
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
     await m.react(`👎`);
-    await m.react(`👏`);
-    await m.react(`💝`);
+    await m.react(`😂`);
+    await m.react(`❤`);
    // await m.react(`😂`);
    // await m.react(`😈`);
   //  await m.react(``)
