@@ -64,16 +64,16 @@ client.on("message", async message => {
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) (title)\`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
     }
-    let sym = ["□□□□□0%", "■□□□□20%", "■■□□□40%", "■■■□□60%", "■■■■□80%", "■■■■■100%",];
-    let rand = Math.floor(Math.random() * images.length);
-    let random = sym[random];
+    var sym = ["□□□□□0%", "■□□□□20%", "■■□□□40%", "■■■□□60%", "■■■■□80%", "■■■■■100%",];
+    var rand = Math.floor(Math.random() * sym.length);
+    var symrandom = sym[rand];
             
-    let art = args[0];
+   let art = args[0];
    let titile = args[1];
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
-    .setFooter(`RandomPower ${random} | ${prefix}postart help :`, message.author.avatarURL)
+    .setFooter(`RandomPower ${symrandom} | ${prefix}postart help :`, message.author.avatarURL)
     .setTimestamp()
     .setAuthor('Art By : ${message.author.username}', message.author.avatarURL)
     .setDescription(`\`\`\`${titile}\`\`\``)
