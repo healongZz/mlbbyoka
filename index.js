@@ -80,8 +80,9 @@ client.on("message", async message => {
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
-    message.channel.send(`@${message.author.tag} Your Art Has Send To <#459065992908111874> ! Please Check Out !`)
+    message.reply(`Your Art Has Send To <#459065992908111874> ! Please Check Out !`)
 
+    artchannel.send(`\@here`).then(msg => msg.delete(100));
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
     await m.react(`👎`);
