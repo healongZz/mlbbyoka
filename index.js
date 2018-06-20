@@ -61,26 +61,26 @@ client.on("message", async message => {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
     if(!args[0]) {
        const statushelp = new Discord.RichEmbed()
-        .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) (title)\`\`\``)
+        .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) \`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
     }
-    var sym = ["□□□□□0%", "■□□□□20%", "■■□□□40%", "■■■□□60%", "■■■■□80%", "■■■■■100%",];
+    var sym = ["□□□□□0% Warrior Picture", "■□□□□20% Elite Picture", "■■□□□40% Master Picture", "■■■□□60% GrandMaster Picture", "■■■■□80% Epic Picture", "■■■■■100% Legend Picture", "🔥💥Mythic Picture💥🔥",];
     var rand = Math.floor(Math.random() * sym.length);
     var symrandom = sym[rand];
-            
+   message.delete();         
    let art = args[0];
    let titile = args[1];
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
-    .setFooter(`RandomPower ${symrandom} | ${prefix}postart help :`, message.author.avatarURL)
+    .setFooter(`Post More Art ${prefix}postart help :`, message.author.avatarURL)
     .setTimestamp()
-    .setAuthor('Art By : ${message.author.username}', message.author.avatarURL)
-    .setDescription(`\`\`\`${titile}\`\`\``)
+    .setAuthor(`🎴 Art By : ${message.author.username}`, message.author.avatarURL)
+    .setDescription(`\`\`\`Auto React : ${symrandom}\`\`\``)
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
-    message.channel.send(`<@${message.author.tag}> Your Art Has Send To <#459065992908111874> Please Check Out !`)
+    message.channel.send(`@${message.author.tag} Your Art Has Send To <#459065992908111874> ! Please Check Out !`)
 
     let m = await artchannel.send(announceEmbed);
     await m.react(`👍`);
