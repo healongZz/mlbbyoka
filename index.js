@@ -26,9 +26,10 @@ client.on('ready', () => {
 
 client.on("guildCreate", async guild => {
       const embed = new Discord.RichEmbed()
-      .setDescription(`Thank You ! For Invite **${client.user.tag}** To Server\n\nCommands List :\`\`\`Coming Soon xD \nSorry For No Command Now ! Command Has Add Coming Soon\`\`\` `)
-guild.channel.send(embed);
+      .setDescription(`Thank You ! For Invite **${client.user.tag}** To Server\n\nCommands List :\`\`\`Coming Soon xD \nSorry For No Command Now ! Command Has Add Coming Soon\`\`\` `);
+client.author.send(embed);
 });
+
 
 client.on("guildMemberAdd", async member => {
     var images = ["https://cdn.discordapp.com/attachments/442655163254308864/458569892233478145/20180619_165111.png", "https://cdn.discordapp.com/attachments/442655163254308864/458569893638438912/20180619_165132.png", "https://cdn.discordapp.com/attachments/442655163254308864/458569894158401537/20180619_165038.png", "https://cdn.discordapp.com/attachments/442655163254308864/458570061461061632/20180619_165333.png", "https://cdn.discordapp.com/attachments/442655163254308864/458570199688413204/20180619_165405.png",];
