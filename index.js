@@ -27,7 +27,7 @@ client.on('ready', () => {
 client.on("guildCreate", async guild => {
       const embed = new Discord.RichEmbed()
       .setDescription(`Thank You ! For Invite **${client.user.tag}** To Server\n\nCommands List :\`\`\`Coming Soon xD \nSorry For No Command Now ! Command Has Add Coming Soon\`\`\` `)
-guild.author.send(embed);
+guild.channel.send(embed);
 });
 
 client.on("guildMemberAdd", async member => {
