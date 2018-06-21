@@ -136,6 +136,11 @@ await role.setColor(color).catch(error => message.channel.send(`Error: \`${error
 await message.channel.send(`\`${role.name}\`'s Color Was Changed To ${role.color}`).catch(error => message.channel.send(`Error: ${error}`));
  
  }
+      if(command === "emoid" ) {
+            message.delete();
+            let emoid = args[0];
+            message.channel.send(`\${emoid}`);
+            }
     
     
 });
