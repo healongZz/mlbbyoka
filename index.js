@@ -76,13 +76,15 @@ client.on("message", async message => {
     var symrandom = sym[rand];
    message.delete();         
    let art = args[0];
-   let titile = args[1];
+   let title = args[1];
+   if(title.length > 12 || contents.length > 12) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
-    .setFooter(`Post More Art Do ( ${prefix}postart help ) :`, message.author.avatarURL)
+    .setFooter(`Commands( ${prefix}postart help ) :`, message.author.avatarURL)
     .setTimestamp()
     .setAuthor(`🎴 Art By : ${message.author.username}`, message.author.avatarURL)
+    .setTitle(title)
     .setDescription(`\`\`\`Auto React : ${symrandom}\`\`\``)
     .setImage(art)
     
