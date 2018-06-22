@@ -20,7 +20,7 @@ let prefix = "mlbb ";
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
-   client.channels.get("458229418549313546").send(`🔵**<@${client.user.tag}>** Has Been Start/Reload !`).then(msg => msg.delete(11000));
+   client.channels.get("458229418549313546").send(`🔴\`LIVE\` **<@457770979519627275>**`).then(msg => msg.delete(9000));
    client.user.setActivity(`SERVER`, { type: 'WATCHING' })
   });
 
