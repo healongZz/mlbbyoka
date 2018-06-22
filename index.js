@@ -20,7 +20,7 @@ let prefix = "mlbb ";
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
-   
+   client.channel.get("458229418549313546").send(`🔵**${client.user.tag}** Has Been Start/Reload !`);
    client.user.setActivity(`SERVER`, { type: 'WATCHING' })
   });
 
@@ -78,15 +78,15 @@ client.on("message", async message => {
    message.delete();         
    let art = args[0];
    let title = args[1];
-   if(title.length > 12) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
+ //  if(title.length > 12) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
     .setFooter(`Commands( ${prefix}postart help ) :`, message.author.avatarURL)
     .setTimestamp()
     .setAuthor(`🎴 Arts By : ${message.author.username}`, message.author.avatarURL)
-    .setTitle(title)
-    .setDescription(`\`\`\`Auto React : ${symrandom}\`\`\``)
+  //  .setTitle(title)
+    .setDescription(`\`\`\`${title}\n\nAuto React : ${symrandom}\`\`\``)
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
@@ -139,12 +139,6 @@ await role.setColor(color).catch(error => message.channel.send(`Error: \`${error
 await message.channel.send(`\`${role.name}\`'s Color Was Changed To ${role.color}`).catch(error => message.channel.send(`Error: ${error}`));
  
  }
-      if(command === "emoid" ) {
-            message.delete();
-            let emoid = args[0];
-            message.channel.send(`\${emoid}`);
-            }
-    
     
 });
 
