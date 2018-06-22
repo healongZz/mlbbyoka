@@ -66,7 +66,8 @@ client.on("message", async message => {
    
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
-    if(args[0] == "help") {
+    message.delete(1000);
+      if(args[0] == "help") {
        const statushelp = new Discord.RichEmbed()
         .setDescription(`\`\`\`Usege : ${prefix}postart (artLink) \`\`\``)
         return message.channel.send(statushelp).then(msg => msg.delete(8000));
@@ -77,13 +78,13 @@ client.on("message", async message => {
    message.delete();         
    let art = args[0];
    let title = args[1];
-   if(title.length > 12 || contents.length > 12) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
+   if(title.length > 12) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
     message.delete();
     let announceEmbed = new Discord.RichEmbed()
     .setColor(`RANDOM`)
     .setFooter(`Commands( ${prefix}postart help ) :`, message.author.avatarURL)
     .setTimestamp()
-    .setAuthor(`🎴 Art By : ${message.author.username}`, message.author.avatarURL)
+    .setAuthor(`🎴 Arts By : ${message.author.username}`, message.author.avatarURL)
     .setTitle(title)
     .setDescription(`\`\`\`Auto React : ${symrandom}\`\`\``)
     .setImage(art)
