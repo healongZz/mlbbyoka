@@ -20,7 +20,7 @@ let prefix = "mlbb ";
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
-   client.channels.get("458229418549313546").send(`🔵**${client.user.tag}** Has Been Start/Reload !`);
+   client.channels.get("458229418549313546").send(`🔵**<@${client.user.tag}>** Has Been Start/Reload !`).then(msg => msg.delete(11000));
    client.user.setActivity(`SERVER`, { type: 'WATCHING' })
   });
 
@@ -42,7 +42,7 @@ const embed = new Discord.RichEmbed()
 .setThumbnail(member.user.avatarURL)
 .setImage(randomImage)
 .setColor('RANDOM')
-.setFooter(`MobileLegends`)
+.setFooter(`MobileLegendsBoomBoom`)
 .setTimestamp()
     .setDescription(`WELCOME **${member}** TO **${member.guild.name}** SERVER  , YOU ARE A MEMBER : **${member.guild.memberCount}**`);
 memberjoin.sendEmbed(embed);
@@ -85,8 +85,8 @@ client.on("message", async message => {
     .setFooter(`Commands( ${prefix}postart help ) :`, message.author.avatarURL)
     .setTimestamp()
     .setAuthor(`🎴 Arts By : ${message.author.username}`, message.author.avatarURL)
-  //  .setTitle(title)
-    .setDescription(`\`\`\`${title}\n\nAuto React : ${symrandom}\`\`\``)
+    .setTitle(title)
+    .setDescription(`\`\`\`\n\nAuto React : ${symrandom}\`\`\``)
     .setImage(art)
     
     let artchannel = message.guild.channels.find('name', "mlbb-art");
