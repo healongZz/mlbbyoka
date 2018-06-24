@@ -65,13 +65,16 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase(); 
     
     if(command === "createhook" || command === "makehook" ) {
-   let args = message.content.split(" ").slice(1);
- //  let name = message.content.split(" ").slice(2);
-   message.channel.createWebhook("MobileLegendsBOT")
-          .then(webhook => webhook.edit("MobileLegendsBOT")
+   message.delete(900);
+   let name = args[0];
+   let icon = args[1];
+   message.channel.createWebhook(name, icon)
+          .then(webhook => webhook.edit(name, icon)
                 .then(wb => message.author.send(`https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`))
                 .catch(console.error))
                  .catch(console.error);
+          message.channel.send(`<@${message.author.id}> **The Links Has Been Send To Yor Dm ! Please Check Out**`).then(m => m.delete(2000));
+          message.react("📤");
       }
    
       if(command === "postart" ) {
