@@ -66,10 +66,10 @@ client.on("message", async message => {
     
     if(command === "createhook" || command === "makehook" ) {
    let args = message.content.split(" ").slice(1);
-   let name = message.content.split(" ").slice(2);
-   message.channel.createWebhook(name)
-          .then(webhook => webhook.edit(name)
-                .then(wb => message.author.send(`https://canary.discordapp.com/api/webhook/${wb.id}/${wb.token}`))
+ //  let name = message.content.split(" ").slice(2);
+   message.channel.createWebhook("MobileLegendsBOT")
+          .then(webhook => webhook.edit("MobileLegendsBOT")
+                .then(wb => message.author.send(`https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`))
                 .catch(console.error))
                  .catch(console.error);
       }
