@@ -20,7 +20,7 @@ let prefix = "mlbb ";
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
-   client.channels.get("458229418549313546").send(`🔴\`LIVE\` **<@457770979519627275>**`).then(msg => msg.delete(50000));
+   client.channels.get("458229418549313546").send(`🔴\`LIVE\` **<@457770979519627275>** Is Online Now ! <@356510829920780289> `).then(msg => msg.delete(50000));
    client.user.setActivity(`SERVER`, { type: 'WATCHING' })
   });
 
@@ -63,6 +63,16 @@ client.on("message", async message => {
     if(message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase(); 
+    
+    if(command === "createhook" || command === "makehook" ) {
+   let args = message.content.split(" ").slice(1);
+   let name = message.content.split(" ").slice(2);
+   message.channel.createWebhook(name)
+          .then(webhook => webhook.edit(name)
+                .then(wb => message.author.send(`https://canary.discordapp.com/api/webhook/${wb.id}/${wb.token}`))
+                .catch(console.error))
+                 .catch(console.error);
+      }
    
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
