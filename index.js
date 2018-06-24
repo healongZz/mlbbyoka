@@ -65,7 +65,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase(); 
     
     if(command === "createhook" || command === "makehook" ) {
-   message.delete(900);
+   message.delete(7000);
    let name = args[0];
    let icon = args[1];
    message.channel.createWebhook(name, icon)
@@ -73,7 +73,7 @@ client.on("message", async message => {
                 .then(wb => message.author.send(`https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`))
                 .catch(console.error))
                  .catch(console.error);
-          message.channel.send(`<@${message.author.id}> **The Links Has Been Send To Yor Dm ! Please Check Out**`).then(m => m.delete(2000));
+          message.channel.send(`<@${message.author.id}> **The Links Has Been Send To Yor Dm ! Please Check Out**`).then(m => m.delete(8000));
           message.react("📤");
       }
    
