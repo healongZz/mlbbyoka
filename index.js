@@ -78,7 +78,7 @@ client.on("message", async message => {
           message.react("📤");
       }
    
- if(command === "daily" ) {
+  if(command === "daily" ) {
     let cooldown = 8.64e+7,
     amount = 250
 
