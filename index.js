@@ -28,16 +28,6 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 36000); //Pinging system.
-
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix)){
