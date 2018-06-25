@@ -78,55 +78,7 @@ client.on("message", async message => {
           message.react("📤");
       }
    
-  if(command === "daily" ) {
-    let cooldown = 8.64e+7,
-    amount = 250
 
-    let lastDaily = await db.fetch(`lastDaily_${message.author.id}`)
-    try {
-    db.fetch(`userBalance_${message.member.id}`).then(bucks => {
-    if(bucks == null){
-        db.set(`userBalance_${message.member.id}`, 50)}
-
-    else if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
-        let timeObj = ms(cooldown - (Date.now() - lastDaily))
-
-        let lastDailyEmbed = new Discord.RichEmbed()
-        .setAuthor(`Next Daily`)
-        .setColor('#ffffff')
-        .setDescription(`You sucessfully collected this, you must wait to collect next dily. Time Left: **${timeObj.hours}h ${timeObj.minutes}m**!`)
-        .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
-        message.channel.send(lastDailyEmbed)
-    } else {
-        db.set(`lastDaily_${message.author.id}`, Date.now());
-        db.add(`userBalance_${message.member.id}`, amount).then(i => {
-          var discord = require('discord.js')
-          var embed = new Discord.RichEmbed()
-          .setTitle('Todays Daily')
-          .setDescription(`Sucessfully collected :dollar:$${amount}`)
-          .setColor('#ffffff')
-          .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
-          message.channel.send(embed);
-        })}
-    })} catch(err) {console.log(err)}
-
-}
-
- if(command === "balance" ) {
-var user = message.mentions.users.first() || message.author;
-        
-        var balance = await db.fetch(`userBalance_${user.id}`)
-        
-        if (balance === null) balance = 50;
-        
-        var embed = new Discord.RichEmbed()
-        .setTitle('Coin Balance')
-        .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
-        .setColor('#ffffff')
-        .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
-        message.channel.send(embed)
-
-}
 
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
@@ -203,7 +155,18 @@ await role.setColor(color).catch(error => message.channel.send(`Error: \`${error
 await message.channel.send(`\`${role.name}\`'s Color Was Changed To ${role.color}`).catch(error => message.channel.send(`Error: ${error}`));
  
  }
-    
+    if(command === "time" || command === "clock" ) {
+var today = new Date()
+let Day = today.toString().split(" ")[0].concat("day");
+let Month = today.toString().split(" ")[1]
+let Year = today.toString().split(" ")[3]
+const embed = new Discord.RichEmbed()
+      .setColor(`RANDOM`)
+.addField("Today is", `\`${Day}\` ,\`${Month}\` ,\`${Year}\`\n\`Time of day:\` \`${today.toString().split(" ")[4]}\``)
+message.channel.send({ embed })
+    message.react("🕰")   
+};
+
 });
 
 client.login(process.env.TOKEN);
