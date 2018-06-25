@@ -18,31 +18,6 @@ const db = require('quick.db');
 
 let prefix = "mlbb ";
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    let eventFunction = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    // super-secret recipe to call events with all their proper arguments *after* the `client` var.
-    client.on(eventName, (...args) => eventFunction.run(client, ...args));
-  });
-});
-
-client.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix)){
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    
-    try {
-      let commandFile = require(`./commands/${command}.js`);
-      commandFile.run(client, message, Discord, prefix, );
-    } catch (err) {
-      console.error(err);
-    }
-  }
-});
-
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
    client.channels.get("458229418549313546").send(`🔴\`LIVE\` **<@457770979519627275>** Is Online Now ! <@356510829920780289> `).then(msg => msg.delete(50000));
@@ -83,6 +58,20 @@ memberjoin.sendEmbed(embed);
   //  .setDescription(`**[ ${member} ]** HAS LEFT **${member.guild.name}** SERVER  , THE SERVER NOW : **${member.guild.memberCount}** USER ! `);
 //memberjoin.send(embed);
 //});    
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix)){
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    
+    try {
+      let commandFile = require(`./commands/${command}.js`);
+      commandFile.run(client, message, Discord, prefix, );
+    } catch (err) {
+      console.error(err);
+    }
+  }
+});
 
 client.on("message", async message => {
     if(message.author.bot) return;
