@@ -111,6 +111,23 @@ client.on("message", async message => {
     })} catch(err) {console.log(err)}
 
 }
+
+ iF(command === "balance" ) {
+var user = message.mentions.users.first() || message.author;
+        
+        var balance = await db.fetch(`userBalance_${user.id}`)
+        
+        if (balance === null) balance = 50;
+        
+        var embed = new Discord.RichEmbed()
+        .setTitle('Coin Balance')
+        .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
+        .setColor('#ffffff')
+        .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
+        message.channel.send(embed)
+
+}
+
       if(command === "postart" ) {
    // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`You Don\'t have permissions **Manage Message** To Use This Commands`);
     message.delete(1000);
