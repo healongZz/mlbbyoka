@@ -112,7 +112,7 @@ client.on("message", async message => {
 
 }
 
- iF(command === "balance" ) {
+ if(command === "balance" ) {
 var user = message.mentions.users.first() || message.author;
         
         var balance = await db.fetch(`userBalance_${user.id}`)
