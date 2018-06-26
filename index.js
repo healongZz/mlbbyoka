@@ -21,7 +21,7 @@ let prefix = "mlbb ";
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} on ${client.guilds.size} Servers ..`);
    client.channels.get("458229418549313546").send(`🔴\`LIVE\` **<@457770979519627275>** Is Online Now ! <@356510829920780289> `).then(msg => msg.delete(50000));
-   client.user.setActivity(`SERVER`, { type: 'WATCHING' })
+   client.user.setActivity(`${prefix}help | MLBB Cambodia`, { type: 'WATCHING' })
   });
 
 client.on("guildCreate", async guild => {
