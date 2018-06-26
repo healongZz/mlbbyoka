@@ -9,10 +9,11 @@ const embed = new Discord.RichEmbed()
 .setTitle(data.title[0])
 .setColor("RANDOM")
 .setImage(data.url[0])
+.setFooter(`Search By : ${message.author.tag}`, message.author.avatarURL)
 
 send(message.channel, embed, {
 
- name: "Meme Genarator :",
+ name: "🐸 Meme Genarator :",
  icon: 'https://cdn.discordapp.com/attachments/461109418315087872/461123891511951371/b0a2c19e3aed899a1c3dbf0ed9dc6af3_icon.png'
    })
 
