@@ -9,7 +9,10 @@ const embed = new Discord.RichEmbed()
 .setTitle("Commands List :")
 .setDescription("`ping`  `embed`  `say`")
 
-message.channel.send(embed);
+send(message.channel, embed, {
+   name: "EmojiList",
+   icon: "https://www.vexels.com/png-svg/preview/134792/3d-smile-emoticon-emoji"
+})
 
 message.react("📝");
 
