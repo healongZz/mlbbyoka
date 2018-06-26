@@ -10,6 +10,6 @@ const embed = new Discord.RichEmbed()
 .setDescription(args.join))
 send(message.channel, embed, {
   name: "Embed",
-}
+ })
 
 }
