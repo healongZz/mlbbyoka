@@ -7,7 +7,7 @@ meme(function(data) {
 const embed = new Discord.RichEmbed()
 .setTitle(data.title[0])
 .setColor("RANDOM")
-.setImage(date.url[0])
+.setImage(data.url[0])
 
 message.channel.send(embed);
 
