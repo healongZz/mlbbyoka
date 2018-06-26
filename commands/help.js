@@ -1,6 +1,16 @@
+const Discord = require("discord.js");
+const send = require("quick.hook");
+
 exports.run = (client, message, Discord, prefix) => {
 message.delete(3000);
-message.channel.send("```Commands List\n\n• say = say || say <channel> <Text>\n• ping = bot ping || ping```").then(m => m.delete(10000));
+
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setTitle("Commands List :")
+.setDescription("`ping`  `embed`  `say`")
+
+message.channel.send(embed);
+
 message.react("📝");
 
 }
