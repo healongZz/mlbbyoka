@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const meme = require("memejs");
-const sen = require("quick.hook");
+const send = require("quick.hook");
 
 exports.run = (client, message, Discord, prefix) => {
 
