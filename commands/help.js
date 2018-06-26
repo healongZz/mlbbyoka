@@ -7,7 +7,7 @@ exports.run = (client, message, Discord, prefix) => {
 const embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setTitle("Commands List :")
-.setDescription("`ping`  `embed`  `say`")
+.setDescription("`ping`  `embed`  `say`  `emojilist`")
 
 send(message.channel, embed, {
    name: "Commands List :",
