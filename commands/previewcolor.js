@@ -9,7 +9,7 @@ const args = message.content.slice(prefix.length).split(/ +/);
 let color = args[0];
 
 const embed = new Discord.RichEmbed()
-.setColor(`0x{color}`)
+.setColor(color)
 .setTitle(`Color Code : ${color}`)
 
  send(message.channel, embed, {
