@@ -1,3 +1,6 @@
+const Discord = require("discord.js");
+const send = require("quick.hook");
+
 exports.run = (client, message, Discord, prefix) => {
 
 const args = message.content.slice(prefix.length).split(/ +/);
